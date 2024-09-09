@@ -25,11 +25,14 @@ public class SavingsAccount extends Account{
     }
     
     @Override
-    public void deposit(double sum) {
-	if(sum < 0)
-            throw new RuntimeException("Cuenta de Ahorros: "+getAccountNumber()+" no puedes depositar un monto negativo");
-        double suma = getInterest() * getBalance();
-	set += sum;
-	
+    public void deposit(double monto){
+	double suma = (getInterest()/100 * getBalance() + getBalance()) + monto;
+        super.deposit(suma);
+    }
+    
+    @Override
+    public void withdraw(double monto){
+        super.withdraw(monto);
+    }
     
 }

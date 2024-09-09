@@ -4,6 +4,16 @@
  */
 package ufps.poo2.ejercicio.banco.vista;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import ufps.poo2.ejercicio.banco.controlador.BancoControlador;
+
 /**
  *
  * @author Boris Perez
@@ -13,8 +23,13 @@ public class BancoVista extends javax.swing.JFrame {
     /**
      * Creates new form BancoVista
      */
+    
+    private BancoControlador controlador;
+    
     public BancoVista() {
         initComponents();
+        
+        controlador = new BancoControlador(this);
     }
 
     /**
@@ -68,8 +83,18 @@ public class BancoVista extends javax.swing.JFrame {
         rbCorriente.setText("Cta. Corriente");
 
         btnCrear.setText("Abrir");
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -136,6 +161,11 @@ public class BancoVista extends javax.swing.JFrame {
         btnCancelarAcciones.setText("Cancelar");
 
         btnAplicar.setText("Aplicar");
+        btnAplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAplicarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -236,6 +266,18 @@ public class BancoVista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        controlador.abrir();
+    }//GEN-LAST:event_btnCrearActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        controlador.cancelar();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarActionPerformed
+        controlador.aplicar();
+    }//GEN-LAST:event_btnAplicarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -271,6 +313,200 @@ public class BancoVista extends javax.swing.JFrame {
         });
     }
 
+    public JButton getBtnAplicar() {
+        return btnAplicar;
+    }
+
+    public void setBtnAplicar(JButton btnAplicar) {
+        this.btnAplicar = btnAplicar;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JButton getBtnCancelarAcciones() {
+        return btnCancelarAcciones;
+    }
+
+    public void setBtnCancelarAcciones(JButton btnCancelarAcciones) {
+        this.btnCancelarAcciones = btnCancelarAcciones;
+    }
+
+    public JButton getBtnCorreos() {
+        return btnCorreos;
+    }
+
+    public void setBtnCorreos(JButton btnCorreos) {
+        this.btnCorreos = btnCorreos;
+    }
+
+    public JButton getBtnCrear() {
+        return btnCrear;
+    }
+
+    public void setBtnCrear(JButton btnCrear) {
+        this.btnCrear = btnCrear;
+    }
+
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
+
+    public void setButtonGroup1(ButtonGroup buttonGroup1) {
+        this.buttonGroup1 = buttonGroup1;
+    }
+
+    public ButtonGroup getButtonGroupAcciones() {
+        return buttonGroupAcciones;
+    }
+
+    public void setButtonGroupAcciones(ButtonGroup buttonGroupAcciones) {
+        this.buttonGroupAcciones = buttonGroupAcciones;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    public void setjLabel5(JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public void setjPanel2(JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JRadioButton getRbAhorros() {
+        return rbAhorros;
+    }
+
+    public void setRbAhorros(JRadioButton rbAhorros) {
+        this.rbAhorros = rbAhorros;
+    }
+
+    public JRadioButton getRbCorriente() {
+        return rbCorriente;
+    }
+
+    public void setRbCorriente(JRadioButton rbCorriente) {
+        this.rbCorriente = rbCorriente;
+    }
+
+    public JRadioButton getRbDividendos() {
+        return rbDividendos;
+    }
+
+    public void setRbDividendos(JRadioButton rbDividendos) {
+        this.rbDividendos = rbDividendos;
+    }
+
+    public JRadioButton getRbRetirar() {
+        return rbRetirar;
+    }
+
+    public void setRbRetirar(JRadioButton rbRetirar) {
+        this.rbRetirar = rbRetirar;
+    }
+
+    public JTextArea getTaMensajes() {
+        return taMensajes;
+    }
+
+    public void setTaMensajes(JTextArea taMensajes) {
+        this.taMensajes = taMensajes;
+    }
+
+    public JTextField getTxtNumeroCuenta() {
+        return txtNumeroCuenta;
+    }
+
+    public void setTxtNumeroCuenta(JTextField txtNumeroCuenta) {
+        this.txtNumeroCuenta = txtNumeroCuenta;
+    }
+
+    public JTextField getTxtNumeroCuentaAcciones() {
+        return txtNumeroCuentaAcciones;
+    }
+
+    public void setTxtNumeroCuentaAcciones(JTextField txtNumeroCuentaAcciones) {
+        this.txtNumeroCuentaAcciones = txtNumeroCuentaAcciones;
+    }
+
+    public JTextField getTxtSaldoCuenta() {
+        return txtSaldoCuenta;
+    }
+
+    public void setTxtSaldoCuenta(JTextField txtSaldoCuenta) {
+        this.txtSaldoCuenta = txtSaldoCuenta;
+    }
+
+    public JTextField getTxtValor() {
+        return txtValor;
+    }
+
+    public void setTxtValor(JTextField txtValor) {
+        this.txtValor = txtValor;
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAplicar;
     private javax.swing.JButton btnCancelar;

@@ -1,5 +1,6 @@
 package ufps.poo2.ejercicio.test;
 
+import ufps.poo2.ejercicio.banco.modelo.Account;
 import ufps.poo2.ejercicio.banco.modelo.Bank;
 
 public class Client {
@@ -36,34 +37,38 @@ public static void main(String[] args) {
 		// -------------------------------------------------
 		
 		
-//		Bank bank = new Bank(); 		
+		Bank bank = new Bank(); 		
+		
+                    
+                try{
+		bank.openAccount('A', 3354678);
+		bank.openAccount('A', 3359302);
+		bank.openAccount('C', 3379844);
+		}catch(Exception e){
+                    System.out.println("Error al crear la cuenta");
+                }
+		bank.payDividend(3354678, 10);
+		bank.payDividend(3354678, 30);
 //		
-//		bank.openAccount('A', 3354678);
-//		bank.openAccount('A', 3359302);
-//		bank.openAccount('C', 3379844);
+		bank.payDividend(3359302, 50);
+		bank.payDividend(3359302, 50);
 //		
-//		bank.payDividend(3354678, 10);
-//		bank.payDividend(3354678, 30);
+		bank.payDividend(3379844, 10);
+		bank.payDividend(3379844, 10);
 //		
-//		bank.payDividend(3359302, 50);
-//		bank.payDividend(3359302, 50);
+		System.out.println("*** Val = "+bank.getBalance(3379844));
 //		
-//		bank.payDividend(3379844, 10);
-//		bank.payDividend(3379844, 10);
+		bank.withdrawAccount(3379844, 20);
+		bank.withdrawAccount(3379844, 5);
 //		
-//		System.out.println("*** Val = "+bank.getBalance(3379844));
+		System.out.println("*** Val = "+bank.getBalance(3379844));
 //		
-//		bank.withdrawAccount(3379844, 20);
-//		bank.withdrawAccount(3379844, 5);
+		bank.withdrawAccount(3379844, 15);
 //		
-//		System.out.println("*** Val = "+bank.getBalance(3379844));
-//		
-//		bank.withdrawAccount(3379844, 15);
-//		
-//		System.out.println("*** Val = "+bank.getBalance(3379844));
+		System.out.println("*** Val = "+bank.getBalance(3379844));
 //		
 //		bank.sendLetterToOverdraftAccounts();
-		
+                
 	
 		// ==================================================
 	
