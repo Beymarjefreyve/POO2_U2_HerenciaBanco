@@ -8,10 +8,10 @@ package ufps.poo2.ejercicio.banco.modelo;
  *
  * @author yefre
  */
-public class SavingsAccount extends Account{
-    
+public class SavingsAccount extends Account {
+
     private double interest;
-    
+
     public SavingsAccount(int a) {
         super(a);
     }
@@ -23,16 +23,16 @@ public class SavingsAccount extends Account{
     public void setInterest(double interest) {
         this.interest = interest;
     }
-    
+
     @Override
-    public void deposit(double monto){
-	double suma = (getInterest()/100 * getBalance() + getBalance()) + monto;
+    public void deposit(double monto) {
+        double suma = monto + ((getBalance() * getInterest()) / 100);
         super.deposit(suma);
     }
-    
+
     @Override
-    public void withdraw(double monto){
+    public void withdraw(double monto) {
         super.withdraw(monto);
     }
-    
+
 }
