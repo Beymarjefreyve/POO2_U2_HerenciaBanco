@@ -18,7 +18,7 @@ public class Bank {
         return buscarCuenta(numero).getBalance();
     }
     
-    public void withdrawAccount(int numero, double monto){
+    public void withdrawAccount(int numero, double monto) throws Exception{
         buscarCuenta(numero).withdraw(monto);
     }
     

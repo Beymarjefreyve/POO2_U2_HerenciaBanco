@@ -5,3 +5,4 @@ build.fxbuild
 /.settings/
 /nbproject/private/
 /build/
+/dist/

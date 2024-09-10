@@ -14,11 +14,11 @@ public class CurrentAccount extends Account {
 
     public CurrentAccount(int a) {
         super(a);
-        this.limite = 0;
+        this.limite = 50;
     }
 
     public double getLimite() {
-        return limite;
+        return this.limite;
     }
 
     public void setLimite(double limite) {
@@ -27,13 +27,8 @@ public class CurrentAccount extends Account {
 
     @Override
     public void withdraw(double monto) {
-        if (monto > getBalance()) {
-            double sobreGiro = monto - getBalance();
-            setLimite(getLimite() - sobreGiro);
-            super.withdraw(getBalance());
-        } else {
+        if(monto <= getBalance() + getLimite())
             super.withdraw(monto);
-        }
 
     }
 

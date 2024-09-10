@@ -14,6 +14,7 @@ public class SavingsAccount extends Account {
 
     public SavingsAccount(int a) {
         super(a);
+        this.interest = 5;
     }
 
     public double getInterest() {
@@ -32,7 +33,8 @@ public class SavingsAccount extends Account {
 
     @Override
     public void withdraw(double monto) {
-        super.withdraw(monto);
+        if(monto <= getBalance())
+            super.withdraw(monto);
     }
 
 }

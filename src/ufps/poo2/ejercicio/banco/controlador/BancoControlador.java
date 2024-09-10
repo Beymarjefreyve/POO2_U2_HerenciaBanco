@@ -33,10 +33,11 @@ public class BancoControlador {
         try {
             if (!(frame.getRbAhorros().isSelected() || frame.getRbCorriente().isSelected())) {
                 JOptionPane.showMessageDialog(null, "Ha ocurrido un error: Debe seleccionar un tipo de cuenta", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                b.openAccount(tipo, id);
+                b.buscarCuenta(id).deposit(saldo);
+                frame.getTaMensajes().append("Se abrió la cuenta id: " + b.buscarCuenta(id).getAccountNumber() + " con incial: " + b.buscarCuenta(id).getBalance() + "\n");
             }
-            b.openAccount(tipo, id);
-            b.buscarCuenta(id).deposit(saldo);
-            frame.getTaMensajes().append("Se abrió la cuenta id: " + b.buscarCuenta(id).getAccountNumber() + " con incial: " + b.buscarCuenta(id).getBalance() + "\n");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } finally {
@@ -65,10 +66,10 @@ public class BancoControlador {
                     JOptionPane.showMessageDialog(null, "Ha ocurrido un error: Debe seleccionar una acción", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if (frame.getRbRetirar().isSelected()) {
                     b.withdrawAccount(id, saldo);
-                    frame.getTaMensajes().append("Retiró: " + saldo + " la cuenta id: " + b.buscarCuenta(id).getAccountNumber() + "\n");
+                    frame.getTaMensajes().append("Retiró: $" + saldo + " la cuenta id: " + b.buscarCuenta(id).getAccountNumber() + "\n");
                 } else if (frame.getRbDividendos().isSelected()) {
                     b.payDividend(id, saldo);
-                    frame.getTaMensajes().append("Pagó: " + saldo + " la cuenta id: " + b.buscarCuenta(id).getAccountNumber() + "\n");
+                    frame.getTaMensajes().append("Pagó: $" + saldo + " la cuenta id: " + b.buscarCuenta(id).getAccountNumber() + "\n");
                 }
 
             } catch (Exception e) {
@@ -99,7 +100,7 @@ public class BancoControlador {
         }
     }
 
-    public void enviarCorreo(){
+    public void enviarCorreo() {
         //Codigo falta hacer
     }
 
